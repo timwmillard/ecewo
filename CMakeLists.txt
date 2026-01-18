@@ -62,6 +62,7 @@ if(NOT TARGET ecewo::ecewo)
     src/arena-pool.c
     src/spawn.c
     src/utils/date-cache.c
+    src/utils/logger.c
   )
 
   if(ECEWO_BUILD_SHARED)

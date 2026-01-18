@@ -1,16 +1,22 @@
 #ifndef ECEWO_LOGGER_H
 #define ECEWO_LOGGER_H
 
-#include <stdio.h>
+#include "ecewo.h"
+
+void ecewo_log(LogLevel level, const char *file, int line,
+               const char *fmt, ...);
+
+#define LOG_INFO(fmt, ...) \
+    ecewo_log(LOG_LEVEL_INFO, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
 #ifdef ECEWO_DEBUG
 #define LOG_DEBUG(fmt, ...) \
-  fprintf(stderr, "[DEBUG] " fmt "\n", ##__VA_ARGS__)
+  ecewo_log(LOG_LEVEL_DEBUG, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 #else
 #define LOG_DEBUG(fmt, ...) ((void)0)
 #endif
 
 #define LOG_ERROR(fmt, ...) \
-  fprintf(stderr, "[ERROR] " fmt "\n", ##__VA_ARGS__)
+  ecewo_log(LOG_LEVEL_ERROR, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
 #endif

@@ -9,6 +9,7 @@ extern "C" {
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdarg.h>
 
 typedef struct uv_loop_s uv_loop_t;
 typedef struct uv_timer_s uv_timer_t;
@@ -283,6 +284,20 @@ uv_tcp_t *get_client_handle(Res *res);
 bool server_is_running(void);
 int get_active_connections(void);
 int get_pending_async_work(void);
+
+// LOG FUNCTIONS
+typedef enum {
+    LOG_LEVEL_DEBUG = 0,
+    LOG_LEVEL_INFO,
+    LOG_LEVEL_WARN,
+    LOG_LEVEL_ERROR
+} LogLevel;
+
+typedef void (*LogHandler)(LogLevel level, const char *file, int line,
+                           const char *fmt, va_list args);
+
+void ecewo_set_log_handler(LogHandler handler);
+void ecewo_set_log_level(LogLevel min_level);
 
 #ifdef __cplusplus
 }
