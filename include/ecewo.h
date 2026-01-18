@@ -296,8 +296,8 @@ typedef enum {
 typedef void (*LogHandler)(LogLevel level, const char *file, int line,
                            const char *fmt, va_list args);
 
-void ecewo_set_log_handler(LogHandler handler);
-void ecewo_set_log_level(LogLevel min_level);
+void server_set_log_handler(LogHandler handler);
+void server_set_log_level(LogLevel min_level);
 
 #ifdef __cplusplus
 }
