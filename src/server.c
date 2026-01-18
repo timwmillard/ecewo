@@ -813,7 +813,7 @@ int server_listen(uint16_t port) {
 
   const char *is_worker = getenv("ECEWO_WORKER");
   if (!is_worker || strcmp(is_worker, "1") != 0)
-    printf("Server listening on http://localhost:%" PRIu16 "\n", port);
+    LOG_INFO("Server listening on http://localhost:%" PRIu16 "\n", port);
 
   return SERVER_OK;
 }
