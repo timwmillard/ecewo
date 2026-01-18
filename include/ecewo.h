@@ -287,10 +287,10 @@ int get_pending_async_work(void);
 
 // LOG FUNCTIONS
 typedef enum {
-    LOG_LEVEL_DEBUG = 0,
-    LOG_LEVEL_INFO,
-    LOG_LEVEL_WARN,
-    LOG_LEVEL_ERROR
+    LOG_LEVEL_DEBUG = -4,
+    LOG_LEVEL_INFO = 0,
+    LOG_LEVEL_WARN = 4,
+    LOG_LEVEL_ERROR = 8,
 } LogLevel;
 
 typedef void (*LogHandler)(LogLevel level, const char *file, int line,
