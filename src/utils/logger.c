@@ -4,7 +4,12 @@
 #include "ecewo.h"
 
 static LogHandler log_handler = NULL;
-static LogLevel min_log_level = LOG_LEVEL_INFO;
+
+#ifdef ECEWO_DEBUG
+static LogLevel min_log_level = LOG_LEVEL_DEBUG;
+#else
+static LogLevel min_log_level = LOG_LEVEL_DEBUG;
+#endif
 
 void server_set_log_handler(LogHandler handler) {
     log_handler = handler;

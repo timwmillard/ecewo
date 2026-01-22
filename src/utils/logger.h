@@ -9,12 +9,8 @@ void ecewo_log(LogLevel level, const char *file, int line,
 #define LOG_INFO(fmt, ...) \
     ecewo_log(LOG_LEVEL_INFO, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 
-#ifdef ECEWO_DEBUG
 #define LOG_DEBUG(fmt, ...) \
   ecewo_log(LOG_LEVEL_DEBUG, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
-#else
-#define LOG_DEBUG(fmt, ...) ((void)0)
-#endif
 
 #define LOG_ERROR(fmt, ...) \
   ecewo_log(LOG_LEVEL_ERROR, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
