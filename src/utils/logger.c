@@ -8,7 +8,7 @@ static LogHandler log_handler = NULL;
 #ifdef ECEWO_DEBUG
 static LogLevel min_log_level = LOG_LEVEL_DEBUG;
 #else
-static LogLevel min_log_level = LOG_LEVEL_DEBUG;
+static LogLevel min_log_level = LOG_LEVEL_INFO;
 #endif
 
 void server_set_log_handler(LogHandler handler) {
